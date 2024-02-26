@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="title" content="RSX">
+    <meta name="description" content="Privacy focused anonymous search engine">
+    <meta name="keywords" content="search, search engine, google, duckduckgo, duck, bing, ai, artificial intelligence">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSX | Home</title>
+    <link rel="icon" type="image/png" href="https://media.discordapp.net/attachments/1025093977394909385/1109859015808266330/logo.png">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400&display=swap');
+
+      * {
+        font-family: 'Fredoka', sans-serif;
+      }
+
+      body {
+        background-color: #11141a;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      h1 {
+        color: #aaa;
+      }
+
+      .search {
+        text-align: center;
+        background-color: #1f1f1f;
+        padding: 25px;
+        border-radius: 20px;
+        box-shadow: 0 0 20px #000;
+      }
+
+      .search-box {
+        border: 3px solid #555;
+        border-radius: 20px;
+        padding: 5px;
+        display: inline-flex;
+        align-items: center;
+        box-shadow: 0 0 10px #000;
+        background-color: #333;
+        width: 400px;
+        max-width: 80%;
+      }
+
+      .search-input {
+        border: none;
+        outline: none;
+        width: calc(100% - 50px);
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 10px;
+        background-color: transparent;
+        color: #aaa;
+      }
+
+      .search-btn {
+        background-color: transparent;
+        border: none;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        border-radius: 10px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: -10px;
+      }
+
+      .search-btn:hover {
+        transition: 0.5s;
+        box-shadow: 0 0 10px #1f1f1f;
+      }
+
+      .search-icon path {
+        fill: #aaa;
+      }
+
+      .container-bottom {
+        color: #aaa;
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .container-bottom-link {
+        margin: 0 10px;
+        color: #aaa;
+        text-decoration: none;
+      }
+
+      .container-bottom-link:hover {
+        transition: 0.3s;
+        color: #25677d;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="search">
+      <h1>RSX</h1>
+      <div class="search-box">
+        <input type="text" id="search-input" class="search-input" placeholder="Search..." onkeydown="if(event.keyCode==13) redirect(event)">
+        <button class="search-btn" onclick="redirect(event)">
+          <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="32" height="32" viewBox="0 0 256 256">
+            <g fill="#111" fill-rule="nonzero">
+              <g transform="scale(8.53333)">
+                <path d="M13,3c-5.511,0 -10,4.489 -10,10c0,5.511 4.489,10 10,10c2.39651,0 4.59738,-0.85101 6.32227,-2.26367l5.9707,5.9707c0.25082,0.26124 0.62327,0.36648 0.97371,0.27512c0.35044,-0.09136 0.62411,-0.36503 0.71547,-0.71547c0.09136,-0.35044 -0.01388,-0.72289 -0.27512,-0.97371l-5.9707,-5.9707c1.41266,-1.72488 2.26367,-3.92576 2.26367,-6.32227c0,-5.511 -4.489,-10 -10,-10zM13,5c4.43012,0 8,3.56988 8,8c0,4.43012 -3.56988,8 -8,8c-4.43012,0 -8,-3.56988 -8,-8c0,-4.43012 3.56988,-8 8,-8z"></path>
+              </g>
+            </g>
+          </svg>
+        </button>
+      </div>
+      <div class="container-bottom">
+        <a href="#" class="container-bottom-link">GitHub</a> • <a href="#" class="container-bottom-link">Discord</a>
+      </div>
+    </div>
+    <script>
+      function redirect(event) {
+        event.preventDefault();
+        var searchInput = document.getElementById('search-input');
+        var userInput = searchInput.value.trim();
+        if (userInput === '') {
+          searchInput.placeholder = 'Enter your search query...';
+        } else {
+          var redirectUrl = "/search/" + encodeURIComponent(userInput);
+          window.location.href = redirectUrl;
+        }
+      }
+    </script>
+  </body>
+</html>
